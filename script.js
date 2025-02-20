@@ -1,14 +1,15 @@
 let subjects = [];
 
 function calculateSGPA() {
-    const marks = [];
-    const credits = [];
+    const allSubjects = document.querySelectorAll('.subject');
     let totalPoints = 0;
     let totalCredits = 0;
 
-    subjects.forEach(subject => {
-        const mark = parseFloat(subject.mark.value);
-        const credit = parseFloat(subject.credit.value);
+    allSubjects.forEach(subject => {
+        const markInput = subject.querySelector('.mark-input');
+        const creditInput = subject.querySelector('.credit-input');
+        const mark = parseFloat(markInput.value);
+        const credit = parseFloat(creditInput.value);
 
         if(isNaN(mark) || isNaN(credit) || mark < 0 || credit <= 0) {
             alert("Please enter valid numbers");
@@ -24,8 +25,6 @@ function calculateSGPA() {
         else if(mark >= 45) gradePoint = 5;
         else if(mark >= 40) gradePoint = 4;
 
-        marks.push(gradePoint);
-        credits.push(credit);
         totalPoints += gradePoint * credit;
         totalCredits += credit;
     });
@@ -48,7 +47,12 @@ document.getElementById('add-subject').addEventListener('click', () => {
         <input type="number" class="credit-input">
     `;
     document.getElementById('subject-container').appendChild(newSubject);
-    subjects.push(newSubject);
 });
 
-document.getElementById('calculate').addEventListener('click', calculateSGPA);
+// Process initial subject on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const initialSubject = document.querySelector('.subject');
+    if(initialSubject) {
+        subjects.push(initialSubject);
+    }
+});
