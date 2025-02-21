@@ -12,12 +12,19 @@
         <div id="subject-container">
             <div class="subject">
                 <input type="number" class="mark-input" placeholder="Enter Marks">
-                <input type="number" class="credit-input" placeholder="Enter Credits">
+                <select class="credit-input">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
             </div>
         </div>
         <button id="add-subject">+ Add Subject</button>
         <button id="calculate">Calculate SGPA</button>
-        <button id="print">Print Results</button> <!-- Add this line -->
+        <button id="print">Print Results</button>
         <div id="result" class="result-box"></div>
     </div>
     <script src="script.js"></script>
