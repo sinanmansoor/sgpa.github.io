@@ -70,7 +70,14 @@ document.addEventListener('DOMContentLoaded', () => {
         newSubject.className = 'subject';
         newSubject.innerHTML = `
             <input type="number" class="mark-input" placeholder="Enter Marks">
-            <input type="number" class="credit-input" placeholder="Enter Credits">
+            <select class="credit-input">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
             <button class="delete-subject">X</button>
         `;
         newSubject.querySelector('.delete-subject').addEventListener('click', () => {
